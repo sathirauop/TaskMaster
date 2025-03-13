@@ -1,0 +1,47 @@
+        /* Global Styles */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      :root {
+          --primary-color: #4a6bff;
+          --primary-dark: #3451d1;
+          --secondary-color: #6c757d;
+          --success-color: #28a745;
+          --danger-color: #dc3545;
+          --warning-color: #ffc107;
+          --light-color: #f8f9fa;
+          --dark-color: #343a40;
+          --white: #ffffff;
+          --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      
+      body {
+          background-color: var(--light-color);
+          color: var(--dark-color);
+
+
+      }
+
+    .layout {
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+     }
+      
+      .container {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+      }
+
+    
+      .main-content {
+        flex: 1;
+        padding: 60px 0;
+    }

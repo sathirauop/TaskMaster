@@ -1,0 +1,41 @@
+
+
+        
+        .heroSection {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .heroText {
+            flex: 1;
+        }
+        
+        .heroImage {
+            flex: 1;
+        }
+        
+        .heroImage img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .pageTitle {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            line-height: 1.2;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+        }
+        
+        .pageDescription {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+        }
