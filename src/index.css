@@ -45,3 +45,92 @@
         flex: 1;
         padding: 60px 0;
     }
+
+
+/* ProtectedAppLayout.css */
+
+/* Basic reset and full-height layout */
+.app-container {
+    display: grid;
+    min-height: 100vh;
+    
+    /* Define our grid areas */
+    grid-template-areas:
+        "header header"
+        "sidebar main";
+        
+    /* Define columns: sidebar and main content */
+    grid-template-columns: 260px 1fr;
+    
+    /* Define rows: header, main content, and footer */
+    grid-template-rows: auto 1fr;
+    
+    /* Add transition for smooth sidebar collapse */
+    transition: grid-template-columns 0.3s ease-in-out;
+}
+
+/* When sidebar is collapsed */
+.app-container.sidebar-collapsed {
+    grid-template-columns: 60px 1fr;
+}
+
+/* Header styles */
+.app-header {
+    grid-area: header;
+    z-index: 100;
+}
+
+/* Sidebar styles */
+.app-sidebar {
+    grid-area: sidebar;
+    background-color: #21528380;
+    border-right: 1px solid #e9ecef;
+    overflow-y: auto;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Main content area */
+.app-main {
+    grid-area: main;
+    overflow-y: auto;
+}
+
+/* Footer styles */
+.app-footer {
+    grid-area: footer;
+    background-color: #ffffff;
+    border-top: 1px solid #e9ecef;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .app-container {
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+    }
+    
+    .app-sidebar {
+        position: fixed;
+        left: 0;
+        top: 60px; /* Adjust based on your header height */
+        bottom: 0;
+        width: 260px;
+        z-index: 99;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .app-container:not(.sidebar-collapsed) .app-sidebar {
+        transform: translateX(0);
+    }
+    
+    .app-container.sidebar-collapsed .app-sidebar {
+        transform: translateX(-100%);
+    }
+}

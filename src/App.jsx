@@ -6,7 +6,8 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Layouts
-import AppLayout from './components/layout/AppLayout';
+import PublicAppLayout from './components/layout/PublicAppLayout';
+import ProtectedAppLayout from './components/layout/ProtectedAppLayout';
 
 import Error from './components/Error'
 
@@ -25,30 +26,99 @@ import { setAuthenticated, setUser } from './features/auth/authSlice';
 
 
 
+// const router = createBrowserRouter([
+//   {
+//     element : <AppLayout/>,
+//     errorElement: <Error/>,
+//     children:[
+//       {
+//         path : '/',
+//         element: <HomePage/>
+//       },
+//       {
+//         path : '/task',
+//         element: protectRoute(<TasksPage/>),
+//         errorElement: <Error/>,
+//       },
+//       {
+//         path : '/dashboard',
+//         element: protectRoute(<DashboardPage/>),
+//         errorElement: <Error/>,
+//       }
+//     ],
+  
+//    },
+  
+//   ])
+
 const router = createBrowserRouter([
+  // Public Layout Routes
   {
-    element : <AppLayout/>,
-    errorElement: <Error/>,
-    children:[
+    element: <PublicAppLayout/>,
+    errorElement: <Error />,
+    children: [
       {
-        path : '/',
-        element: <HomePage/>
-      },
-      {
-        path : '/task',
-        element: protectRoute(<TasksPage/>),
-        errorElement: <Error/>,
-      },
-      {
-        path : '/dashboard',
-        element: protectRoute(<DashboardPage/>),
-        errorElement: <Error/>,
+        path: '/',
+        element: <HomePage />
       }
-    ],
+      // {
+      //   path: '/about',
+      //   element: <AboutPage />
+      // },
+      // {
+      //   path: '/contact',
+      //   element: <ContactPage />
+      // }
+    ]
+  },
   
-   },
+  // Auth Layout Routes
+  // {
+  //   element: <AuthLayout />,
+  //   errorElement: <Error />,
+  //   children: [
+  //     {
+  //       path: '/login',
+  //       element: <LoginPage />
+  //     },
+  //     {
+  //       path: '/signup',
+  //       element: <SignupPage />
+  //     },
+  //     {
+  //       path: '/forgot-password',
+  //       element: <ForgotPasswordPage />
+  //     }
+  //   ]
+  // },
   
-  ])
+  // App Layout Routes (with protection)
+  {
+    element: <ProtectedAppLayout/>,
+    errorElement: <Error />,
+    children: [
+          {
+            path: '/task',
+            element: protectRoute(<TasksPage/>),
+            errorElement: <Error/>,
+          },
+          {
+            path: '/dashboard',
+            element: protectRoute(<DashboardPage/>),
+            errorElement: <Error/>,
+          }
+          // {
+          //   path: '/time-tracking',
+          //   element: <TimeTrackingPage />
+          // },
+          // {
+          //   path: '/settings',
+          //   element: <SettingsPage />
+          // }
+        ]
+      }
+    ]
+);
 
   function App() {
 

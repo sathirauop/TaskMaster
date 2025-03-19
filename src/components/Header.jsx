@@ -20,7 +20,7 @@ function Header() {
 
     return (
 
-        <header className={styles.navbar}>
+        <div className={styles.navbar}>
             <div className={`${styles.navbarContainer} container`}>
                 <a href="#" className={styles.logo}>Task Master</a>
                 <ul className={styles.navlinks}>
@@ -33,7 +33,7 @@ function Header() {
                     {isAuthenticated && <li><a href="#" onClick={(e)=>handleLogout(e)}>Logout</a></li>}
                 </ul>
             </div>
-        </header>
+        </div>
     )
 }
 

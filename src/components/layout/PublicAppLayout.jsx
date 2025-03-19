@@ -3,7 +3,7 @@ import Header from "../Header"
 import Footer from "../Footer"
 import Loader from "../Loader"
 
-function AppLayout() {
+function PublicAppLayout() {
     const navigation = useNavigation();
     const isLoading = navigation.state === "loading";
 
@@ -23,4 +23,4 @@ function AppLayout() {
     )
 }
 
-export default AppLayout
+export default PublicAppLayout
